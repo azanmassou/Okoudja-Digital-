@@ -1,155 +1,709 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Okoudja Digital</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Okoudja Digital | Agence Technologique & Innovations</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefcf5;
+            color: #1a1a2e;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
 
-  <style>
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background: linear-gradient(120deg, #0f172a, #1e3a8a);
-    }
+        /* Couleurs personnalisées */
+        :root {
+            --dark-blue: #0a1927;
+            --deep-teal: #0f2c2a;
+            --gold-accent: #d4af37;
+            --warm-gold: #e6c87a;
+            --light-bg: #fefaf0;
+            --gray-mid: #4a4a5a;
+            --shadow-sm: 0 10px 30px -10px rgba(0,0,0,0.08);
+            --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
 
-    /* CARDS */
-    .service-card {
-      border: none;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      transition: 0.3s;
-    }
+        /* Layout global */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
 
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
+        /* Header / Navbar */
+        .navbar {
+            background: rgba(10, 25, 39, 0.92);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
 
-    /* CONTACT */
-    .contact-form {
-      max-width: 500px;
-      margin: auto;
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-    /* NAV */
-    .navbar {
-      backdrop-filter: blur(10px);
-    }
-  </style>
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff 30%, var(--gold-accent) 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.75rem;
+            color: var(--warm-gold);
+            letter-spacing: 2px;
+            margin-top: -5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--gold-accent);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(125deg, #0a1927 0%, #12322b 100%);
+            display: flex;
+            align-items: center;
+            padding-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: "⚡";
+            font-size: 28vw;
+            opacity: 0.03;
+            position: absolute;
+            bottom: -10%;
+            right: -5%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            flex: 1.2;
+            color: white;
+        }
+
+        .hero-content .badge {
+            background: rgba(212, 175, 55, 0.2);
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--warm-gold);
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--gold-accent);
+            color: #0a1927;
+            padding: 0.9rem 2rem;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #f5d97a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--gold-accent);
+            background: transparent;
+            padding: 0.85rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold-accent);
+            color: #0a1927;
+        }
+
+        .hero-stats {
+            flex: 0.8;
+            background: rgba(255,255,245,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 36px;
+            padding: 2rem;
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold-accent);
+        }
+
+        /* sections communes */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--gold-accent);
+            border-radius: 4px;
+        }
+
+        .section-sub {
+            color: var(--gray-mid);
+            max-width: 650px;
+            margin-bottom: 3rem;
+        }
+
+        /* Services cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem 1.8rem;
+            border-radius: 28px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid #f0e9da;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12);
+            border-color: var(--warm-gold);
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            color: var(--gold-accent);
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.02);
+        }
+
+        .portfolio-img {
+            background: linear-gradient(145deg, #12322b, #1f4a40);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--gold-accent);
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        /* Formulaire */
+        .contact-section {
+            background: linear-gradient(120deg, #fefaf0 0%, #fff6e5 100%);
+            border-radius: 48px;
+            margin: 2rem 0;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            background: white;
+            padding: 2rem;
+            border-radius: 36px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 24px;
+            border: 1px solid #e2dccd;
+            font-family: inherit;
+            background: #fff;
+            transition: 0.2s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gold-accent);
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.2);
+        }
+
+        button[type="submit"] {
+            background: var(--dark-blue);
+            color: white;
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        button[type="submit"]:hover {
+            background: var(--gold-accent);
+            color: #0a1927;
+        }
+
+        .footer {
+            background: #0a1927;
+            color: #ccc;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+
+        /* responsive */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: #0a1927f2;
+                padding: 1rem;
+                border-radius: 28px;
+                margin-top: 1rem;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .hero-grid {
+                flex-direction: column;
+            }
+        }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #0f2c2a;
+            color: var(--warm-gold);
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            z-index: 1100;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Okoudja Digital</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">
+            <h1>OKOUDJA DIGITAL</h1>
+            <p>innovation • technologie • impact</p>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Réalisations</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </div>
-  </div>
 </nav>
 
-<!-- HERO -->
-<header id="home" class="hero d-flex align-items-center text-center text-white">
-  <div class="container">
-    <h1 class="display-4 fw-bold">Okoudja Digital 🚀</h1>
-    <p class="lead">Solutions digitales • Innovation • Tech • Entrepreneuriat</p>
-    <a href="#contact" class="btn btn-primary btn-lg mt-3">Nous contacter</a>
-  </div>
-</header>
-
-<!-- SERVICES -->
-<section id="services" class="py-5">
-  <div class="container text-center">
-    <h2 class="mb-5">Nos Services</h2>
-
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card service-card p-3">
-          <h5>🌐 Sites Web</h5>
-          <p>Création de sites modernes et responsives.</p>
+<!-- Hero section -->
+<section id="home" class="hero">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <div class="badge">✨ Agence nouvelle génération</div>
+            <h1>Façonnez le futur <br> avec l'innovation digitale</h1>
+            <p>Okoudja Digital allie intelligence artificielle, design audacieux et solutions sur-mesure pour propulser votre entreprise vers l'excellence technologique.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn-primary">Lancer un projet <i class="fas fa-arrow-right"></i></a>
+                <a href="#services" class="btn-outline">Découvrir nos expertises</a>
+            </div>
         </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card service-card p-3">
-          <h5>🎨 Design</h5>
-          <p>Interfaces UI/UX modernes et professionnelles.</p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">+45</div>
+                <div>Projets innovants</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div>Approche sur-mesure</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div>Support stratégique</div>
+            </div>
         </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="card service-card p-3">
-          <h5>⚡ Digital</h5>
-          <p>Solutions digitales et automatisation WhatsApp.</p>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2>À propos</h2>
-    <p class="mt-3">
-      Okoudja Digital accompagne les entrepreneurs et entreprises dans leur transformation digitale avec des solutions modernes, simples et efficaces.
-    </p>
-  </div>
+<!-- Services -->
+<section id="services">
+    <div class="container">
+        <h2 class="section-title">Nos solutions digitales</h2>
+        <p class="section-sub">Des technologies de rupture pour donner vie à vos ambitions. Design, code, data & cloud.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                <h3>IA & Data Science</h3>
+                <p>Algorithmes prédictifs, vision par ordinateur et automatisation intelligente pour booster votre performance.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Applications mobiles</h3>
+                <p>Apps natives iOS/Android, React Native & Flutter. Expérience utilisateur fluide et design premium.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <h3>Cloud & DevOps</h3>
+                <p>Infrastructure scalable (AWS, Azure), CI/CD, monitoring 360° — agilité et résilience.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>UX/UI Design</h3>
+                <p>Interfaces immersives, design systems et recherche utilisateur pour des produits mémorables.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Web3 & Blockchain</h3>
+                <p>Smart contracts, NFTs, solutions décentralisées : préparez-vous à la prochaine ère internet.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Marketing Digital</h3>
+                <p>SEO, growth hacking, analytics — maximisez votre visibilité et conversion data-driven.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="py-5">
-  <div class="container">
-    <h2 class="text-center mb-4">Contact</h2>
-
-    <form id="contactForm" class="contact-form">
-      <input type="text" class="form-control mb-3" placeholder="Nom" required>
-      <input type="email" class="form-control mb-3" placeholder="Email" required>
-      <textarea class="form-control mb-3" rows="4" placeholder="Message" required></textarea>
-      <button class="btn btn-dark w-100">Envoyer</button>
-    </form>
-  </div>
+<!-- Portfolio / Réalisations -->
+<section id="portfolio" style="background: #f7f4ea;">
+    <div class="container">
+        <h2 class="section-title">Projets phares</h2>
+        <p class="section-sub">Des collaborations qui transforment les idées en succès concrets.</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-img"><i class="fas fa-brain"></i> 🤖</div>
+                <div class="portfolio-info">
+                    <h3>SmartPredict AI</h3>
+                    <p>Solution de maintenance prédictive pour l'industrie 4.0, réduction des pannes de 38%.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-img"><i class="fas fa-shopping-cart"></i> 🛍️</div>
+                <div class="portfolio-info">
+                    <h3>Luxura e‑commerce</h3>
+                    <p>Marketplace luxe avec recommandation IA + paiement tokenisé, +127% de conversion.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-img"><i class="fas fa-chalkboard-user"></i> 📘</div>
+                <div class="portfolio-info">
+                    <h3>EduFlow Metaverse</h3>
+                    <p>Plateforme immersive de formation en réalité mixte utilisée par 15 universités.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="bg-dark text-white text-center py-3">
-  <p class="mb-0">© 2026 Okoudja Digital. Tous droits réservés.</p>
+<!-- Contact + formulaire -->
+<section id="contact" class="contact-section" style="padding: 3rem 0 5rem 0;">
+    <div class="container">
+        <h2 class="section-title">Construisons ensemble</h2>
+        <p class="section-sub">Une idée, un projet ambitieux ? Échangeons dès maintenant.</p>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div style="margin-bottom: 2rem;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--gold-accent); font-size: 1.5rem;"></i>
+                    <p style="margin-top: 0.5rem;">Abidjan, Plateau — Digital Hub<br>Paris, Station F</p>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <i class="fas fa-envelope" style="color: var(--gold-accent); font-size: 1.5rem;"></i>
+                    <p>contact@okoudjadigital.com</p>
+                </div>
+                <div>
+                    <i class="fas fa-phone-alt" style="color: var(--gold-accent); font-size: 1.5rem;"></i>
+                    <p>+225 07 07 12 34 56</p>
+                </div>
+                <div class="hero-stats" style="margin-top: 2rem; background: #0a1927; color:white; padding:1rem;">
+                    <p style="font-style: italic;">"L'innovation technologique au service de votre croissance."</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Demande de devis ou renseignement</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Nom complet *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Adresse email *" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="serviceInterest">
+                            <option value="IA & Data">IA & Data</option>
+                            <option value="Développement web">Développement web</option>
+                            <option value="Mobile">Application mobile</option>
+                            <option value="Cloud">Cloud & DevOps</option>
+                            <option value="Design">UX/UI Design</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" id="message" placeholder="Décrivez votre projet ou besoin..."></textarea>
+                    </div>
+                    <button type="submit" id="submitBtn">Envoyer la demande <i class="fas fa-paper-plane"></i></button>
+                </form>
+                <p id="formFeedback" style="margin-top: 1rem; font-size: 0.85rem;"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2025 Okoudja Digital — Agence technologique d’innovation. Tous droits réservés.</p>
+        <div style="margin-top: 1rem; font-size: 1.2rem;">
+            <i class="fab fa-twitter" style="margin: 0 8px; cursor:pointer;"></i>
+            <i class="fab fa-linkedin" style="margin: 0 8px; cursor:pointer;"></i>
+            <i class="fab fa-github" style="margin: 0 8px; cursor:pointer;"></i>
+        </div>
+    </div>
 </footer>
 
-<!-- JS Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute("href")).scrollIntoView({
-        behavior: "smooth"
-      });
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+    mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
-  });
 
-  // Form demo
-  document.getElementById("contactForm").addEventListener("submit", function(e){
-    e.preventDefault();
-    alert("Message envoyé avec succès 🚀");
-    this.reset();
-  });
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if(hash && hash.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(hash);
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    if(navLinks.classList.contains('active')) navLinks.classList.remove('active');
+                }
+            }
+        });
+    });
+
+    // Formulaire contact avec simulation d'envoi + feedback visuel
+    const form = document.getElementById('contactForm');
+    const feedbackPara = document.getElementById('formFeedback');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        if(!name || !email) {
+            feedbackPara.style.color = '#b33';
+            feedbackPara.innerText = "⚠️ Veuillez remplir votre nom et email.";
+            return;
+        }
+        if(!email.includes('@') || !email.includes('.')) {
+            feedbackPara.style.color = '#b33';
+            feedbackPara.innerText = "📧 Adresse email invalide.";
+            return;
+        }
+        
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Envoi en cours...";
+        
+        // Simulation d'envoi asynchrone (API factice)
+        setTimeout(() => {
+            feedbackPara.style.color = '#0f7b5e';
+            feedbackPara.innerHTML = "✅ Merci " + name + " ! Votre message a bien été reçu. Notre équipe Okoudja Digital vous répond sous 24h.";
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "Envoyer la demande <i class='fas fa-paper-plane'></i>";
+            
+            // petite notification toast
+            showToast("Demande envoyée avec succès !");
+        }, 1000);
+    });
+    
+    function showToast(message) {
+        let toast = document.createElement('div');
+        toast.className = 'toast-msg';
+        toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 400);
+        }, 3000);
+    }
+    
+    // navbar background change on scroll
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if(window.scrollY > 50) {
+            navbar.style.backgroundColor = '#0a1927';
+            navbar.style.backdropFilter = 'blur(8px)';
+        } else {
+            navbar.style.backgroundColor = 'rgba(10, 25, 39, 0.92)';
+        }
+    });
+    
+    // petite animation au chargement
+    window.addEventListener('DOMContentLoaded', () => {
+        console.log("Okoudja Digital — innovation prête");
+        // préremplissage test? aucun
+    });
 </script>
-
 </body>
 </html>
