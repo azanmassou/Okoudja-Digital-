@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>GlobalTradEx | Import-Export Moderne</title>
-    <!-- Font Awesome 6 (Gratuit & moderne) -->
+    <title>Global Nexus | Import-Export Premium</title>
+    <!-- Font Awesome 6 Pro (gratuit) + Google Fonts (Sora + Inter) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts : Inter + Poppins pour une touche moderne -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,404 +16,396 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #fafcff;
-            color: #1a2c3e;
+            background: #fefefe;
+            color: #0A1C2F;
             line-height: 1.5;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* Container personnalisé */
+        /* Dégradés modernes et variables */
+        :root {
+            --primary-deep: #0A2647;
+            --primary-ocean: #1B4A7A;
+            --accent-gold: #F4A261;
+            --accent-teal: #2A9D8F;
+            --grad-1: linear-gradient(135deg, #0A2647 0%, #1B4A7A 100%);
+            --grad-2: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            --grad-gold: linear-gradient(145deg, #F4A261, #E76F51);
+            --shadow-xl: 0 25px 45px -12px rgba(0,0,0,0.25);
+            --card-radius: 2rem;
+        }
+
         .container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 2rem;
         }
 
-        /* Glassmorphism / moderne */
-        :root {
-            --primary: #0a66b9;
-            --primary-dark: #054a8c;
-            --accent: #ffb74d;
-            --gray-light: #f0f4f9;
-            --gray-border: #e2e8f0;
-            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
-            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Boutons modernes */
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 2px 5px rgba(10,102,185,0.2);
-        }
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px -12px rgba(10,102,185,0.4);
-        }
-        .btn-outline {
-            background: transparent;
-            border: 1.5px solid var(--primary);
-            color: var(--primary);
-            padding: 10px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-            transition: all 0.2s;
-        }
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Header sticky + moderne */
+        /* Glassmorphisme / Header */
         header {
-            background: rgba(255,255,255,0.92);
-            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 200;
+            background: rgba(255,255,255,0.78);
+            backdrop-filter: blur(18px);
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding: 16px 0;
+            padding: 0.8rem 0;
         }
+
         .header-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
         }
+
         .logo h1 {
-            font-size: 1.8rem;
+            font-family: 'Sora', sans-serif;
+            font-size: 1.9rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #0a66b9, #1e88e5);
+            background: var(--grad-1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            letter-spacing: -0.5px;
-        }
-        .logo span {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #5a6e7c;
-            display: block;
-        }
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            color: #1e2f3f;
-            transition: 0.2s;
-        }
-        .nav-links a:hover {
-            color: var(--primary);
+            letter-spacing: -0.02em;
         }
 
-        /* Hero section avec vague moderne */
-        .hero {
-            padding: 80px 0 70px;
-            background: linear-gradient(110deg, #ffffff 40%, #f1f7fe 100%);
+        .logo span {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #4A627A;
+            letter-spacing: 0.5px;
         }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1F3A4B;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .btn-gradient {
+            background: var(--grad-1);
+            color: white;
+            padding: 0.7rem 1.6rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 18px rgba(27,74,122,0.2);
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -8px rgba(27,74,122,0.4);
+        }
+
+        /* Hero section avec image et dégradé arrière */
+        .hero {
+            position: relative;
+            background: radial-gradient(circle at 80% 20%, rgba(244,162,97,0.08), rgba(10,38,71,0.02)), var(--grad-2);
+            padding: 5rem 0 6rem;
+            overflow: hidden;
+        }
+
         .hero-grid {
             display: flex;
             align-items: center;
-            gap: 50px;
+            gap: 4rem;
             flex-wrap: wrap;
         }
+
         .hero-text {
-            flex: 1;
-        }
-        .hero-text .badge {
-            background: #e9f0fa;
-            color: var(--primary-dark);
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        .hero-text h1 {
-            font-size: 3.4rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            color: #0c2e42;
-        }
-        .hero-text p {
-            font-size: 1.2rem;
-            color: #446b7e;
-            max-width: 90%;
-            margin-bottom: 32px;
-        }
-        .hero-stats {
-            display: flex;
-            gap: 32px;
-            margin-top: 30px;
-        }
-        .stat-item h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-        .hero-image img {
-            max-width: 100%;
-            filter: drop-shadow(0 20px 25px -12px rgba(0,0,0,0.15));
+            flex: 1.2;
         }
 
-        /* Section Services */
-        .section {
-            padding: 80px 0;
+        .badge {
+            background: rgba(244,162,97,0.2);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #C4622E;
+            margin-bottom: 1.5rem;
         }
+
+        .hero-text h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(130deg, #0A2647, #2C5A8C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #2C4C6C;
+            max-width: 90%;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0A2647;
+        }
+
+        .hero-image {
+            flex: 1;
+            filter: drop-shadow(0 20px 20px rgba(0,0,0,0.1));
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 460px;
+            border-radius: 2rem;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        /* Section Services avec cartes image + dégradés */
+        .section {
+            padding: 5rem 0;
+        }
+
         .section-title {
             text-align: center;
-            margin-bottom: 56px;
+            margin-bottom: 3.5rem;
         }
+
         .section-title h2 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: #0c2e42;
+            font-family: 'Sora', sans-serif;
+            font-size: 2.6rem;
+            background: linear-gradient(125deg, #0A2647, #2C5A8C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        .section-title p {
-            color: #5a7f92;
-            max-width: 620px;
-            margin: 12px auto 0;
-        }
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
         }
+
         .service-card {
             background: white;
-            border-radius: 28px;
-            padding: 32px 24px;
-            transition: all 0.3s;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--gray-border);
-            text-align: center;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            box-shadow: 0 12px 28px -10px rgba(0,0,0,0.08);
+            transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
+            border: 1px solid rgba(0,0,0,0.03);
         }
+
         .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-            border-color: #cbdde9;
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
         }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover .card-img img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.8rem;
+        }
+
         .service-icon {
-            font-size: 3rem;
-            background: #eef4fc;
-            width: 80px;
-            height: 80px;
+            font-size: 2.6rem;
+            background: linear-gradient(145deg, #F4F9FF, #E6F0FA);
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            margin: 0 auto 24px;
-            color: var(--primary);
-        }
-        .service-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 12px;
-        }
-        .service-card p {
-            color: #4a6272;
+            border-radius: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: #1B4A7A;
         }
 
-        /* Zone de devises / CTA interactif */
-        .exchange-card {
-            background: linear-gradient(120deg, #0a2647, #1b3a5c);
-            border-radius: 48px;
-            padding: 48px 40px;
-            color: white;
+        /* zone de dégradé dynamique "monde connecté" */
+        .map-vibe {
+            background: var(--grad-1);
+            border-radius: 4rem;
+            margin: 2rem 0;
+            padding: 3.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-vibe::before {
+            content: "🌍";
+            font-size: 12rem;
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .flex-offer {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            margin: 30px 0 20px;
-        }
-        .exchange-text h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        .exchange-text p {
-            opacity: 0.8;
-            margin-top: 8px;
-        }
-        .live-rates {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(8px);
-            border-radius: 60px;
-            padding: 12px 32px;
-            display: inline-flex;
-            align-items: center;
-            gap: 20px;
-            font-weight: 600;
-        }
-        .live-rates span {
-            font-size: 1.2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+            color: white;
         }
 
-        /* Section À propos / valeurs */
+        .offer-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .live-data {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* about section avec photos */
         .about-grid {
             display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
+            gap: 3rem;
             align-items: center;
+            flex-wrap: wrap;
         }
+
+        .about-gallery {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-gallery img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            box-shadow: 0 12px 18px -8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .about-gallery img:hover {
+            transform: scale(1.02);
+        }
+
         .about-text {
             flex: 1;
         }
+
         .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-        .about-list {
-            list-style: none;
-            margin-top: 24px;
-        }
-        .about-list li {
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .about-list i {
-            color: var(--primary);
-            font-size: 1.4rem;
-        }
-        .about-image {
-            flex: 1;
-            background: #e2edf7;
-            border-radius: 32px;
-            padding: 20px;
-            text-align: center;
+            font-size: 2.2rem;
+            font-family: 'Sora', sans-serif;
         }
 
-        /* Formulaire de contact moderne */
-        .contact-form {
-            background: white;
-            border-radius: 40px;
-            padding: 40px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #eef2f8;
+        .pill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 2rem 0;
         }
-        .form-grid {
+
+        .pill {
+            background: #EFF5FB;
+            padding: 0.5rem 1.2rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            color: #0A2647;
+        }
+
+        /* formulaire premium */
+        .contact-premium {
+            background: linear-gradient(115deg, #FFFFFF 0%, #F9FCFE 100%);
+            border-radius: 2.8rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(42,157,143,0.2);
+        }
+
+        .form-2cols {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            gap: 1.5rem;
         }
-        .input-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .input-group.full-width {
-            grid-column: span 2;
-        }
-        input, select, textarea {
-            padding: 14px 18px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 28px;
+
+        .input-field {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border-radius: 2rem;
+            border: 1px solid #E2EDF2;
+            background: white;
             font-family: inherit;
-            font-size: 1rem;
-            transition: 0.2s;
-            background: #fff;
-        }
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(10,102,185,0.1);
-        }
-        textarea {
-            resize: vertical;
-        }
-        button[type="submit"] {
-            background: var(--primary);
-            border: none;
-            padding: 14px 32px;
-            border-radius: 40px;
-            font-weight: bold;
-            font-size: 1rem;
-            color: white;
-            cursor: pointer;
-            width: fit-content;
             transition: 0.2s;
         }
 
-        /* Footer */
-        footer {
-            background: #0f1f2c;
-            color: #cbdae3;
-            padding: 48px 0 24px;
-            margin-top: 40px;
+        .input-field:focus {
+            border-color: var(--accent-teal);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(42,157,143,0.15);
         }
+
+        footer {
+            background: #071B2B;
+            color: #BED3E3;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
         .footer-grid {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 18px;
-            font-size: 1.2rem;
-        }
-        .footer-col p, .footer-col a {
-            color: #b4c8d6;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-        .social-links {
-            display: flex;
-            gap: 18px;
-            font-size: 1.4rem;
-            margin-top: 10px;
-        }
-        .copyright {
-            border-top: 1px solid #2a4050;
-            padding-top: 24px;
-            text-align: center;
-            font-size: 0.85rem;
+            gap: 2rem;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 24px;
-            }
-            .hero-text h1 {
-                font-size: 2.4rem;
-            }
-            .nav-links {
-                gap: 20px;
-            }
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-            .input-group.full-width {
-                grid-column: span 1;
-            }
-            .exchange-card {
-                flex-direction: column;
-                text-align: center;
-            }
+        @media (max-width: 800px) {
+            .hero-text h1 { font-size: 2.6rem; }
+            .form-2cols { grid-template-columns: 1fr; }
+            .about-gallery { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -423,151 +414,133 @@
 <header>
     <div class="container header-flex">
         <div class="logo">
-            <h1>GlobalTradEx</h1>
-            <span>Import · Export · Logistics</span>
+            <h1>Global Nexus</h1>
+            <span>Import • Export • Worldwide Logistics</span>
         </div>
         <div class="nav-links">
             <a href="#home">Accueil</a>
-            <a href="#services">Services</a>
-            <a href="#about">À propos</a>
-            <a href="#contact">Contact</a>
-            <a href="#" id="demoQuoteBtn" class="btn-outline" style="padding: 8px 20px;">Devis express</a>
+            <a href="#services">Prestations</a>
+            <a href="#about">Présence</a>
+            <a href="#contact">Devis</a>
+            <button class="btn-gradient" id="ctaNav">+ Contact Pro</button>
         </div>
     </div>
 </header>
 
 <main>
-    <!-- Hero section #home -->
+    <!-- Hero section haute résolution image -->
     <section id="home" class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
-                <div class="badge"><i class="fas fa-globe-americas"></i> Connecteur mondial depuis 2012</div>
-                <h1>Import & Export <br> sans frontières</h1>
-                <p>Solutions sur-mesure pour acheminer vos marchandises entre 85+ pays. Logistique, douane, fret aérien et maritime — une fiabilité absolue.</p>
+                <div class="badge"><i class="fas fa-ship"></i> 24/7 Global Trade Solutions</div>
+                <h1>L'avenir du commerce international</h1>
+                <p>Déverrouillez de nouveaux marchés avec notre réseau intégré de fret maritime, aérien & dédouanement premium. +85 pays desservis.</p>
                 <div class="hero-stats">
-                    <div class="stat-item"><h3>95+</h3><p>Partenaires</p></div>
-                    <div class="stat-item"><h3>3200+</h3><p>Containers / an</p></div>
-                    <div class="stat-item"><h3>24/7</h3><p>Support dédié</p></div>
+                    <div class="stat-item"><h3>98%</h3><p>Satisfaction client</p></div>
+                    <div class="stat-item"><h3>4500+</h3><p>Containers / an</p></div>
+                    <div class="stat-item"><h3>24h</h3><p>Réponse devis</p></div>
                 </div>
-                <div style="margin-top: 32px;">
-                    <button class="btn-primary" id="heroCta">Demander un devis <i class="fas fa-arrow-right"></i></button>
-                </div>
+                <button class="btn-gradient" id="heroDevis" style="margin-top: 1.2rem; font-size: 1rem;">Obtenir un devis express <i class="fas fa-arrow-right"></i></button>
             </div>
             <div class="hero-image">
-                <!-- SVG / icône moderne de trade -->
-                <img src="https://cdn-icons-png.flaticon.com/512/2950/2950047.png" alt="global trade illustration" style="width: 85%; max-width: 380px;">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format" alt="Cargo ship freight" style="border-radius: 2rem;">
             </div>
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services avec images riches -->
     <section id="services" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Nos expertises douanières & logistiques</h2>
-                <p>De la préparation documentaire à la livraison finale — nous maîtrisons chaque maillon.</p>
+                <h2>Solutions sur-mesure <i class="fas fa-globe-americas"></i></h2>
+                <p>Des chaînes logistiques fluides, digitalisées et résilientes</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-ship"></i></div>
-                    <h3>Fret maritime</h3>
-                    <p>Groupage, conteneur complet (FCL/LCL), transit time optimisé et tarifs négociés.</p>
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=500&auto=format" alt="Fret maritime"></div>
+                    <div class="card-content"><div class="service-icon"><i class="fas fa-ship"></i></div><h3>Fret Maritime</h3><p>FCL/LCL, transit time optimisé, assurance cargo.</p></div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-plane"></i></div>
-                    <h3>Fret aérien</h3>
-                    <p>Solutions express pour marchandises urgentes ou de valeur. Suivi temps réel.</p>
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&auto=format" alt="Avion cargo"></div>
+                    <div class="card-content"><div class="service-icon"><i class="fas fa-plane"></i></div><h3>Fret Aérien</h3><p>Urgence, pharma, high-tech : solutions premium express.</p></div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-truck-fast"></i></div>
-                    <h3>Dédouanement</h3>
-                    <p>Gestion des formalités douanières, certificats d'origine et dédouanement sans stress.</p>
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=500&auto=format" alt="Douane numérique"></div>
+                    <div class="card-content"><div class="service-icon"><i class="fas fa-passport"></i></div><h3>Dédouanement</h3><p>Déclarations, conformité, transitaires agréés en douane.</p></div>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                    <h3>Trade consulting</h3>
-                    <p>Audit de chaîne d'approvisionnement, mise en conformité et stratégie export.</p>
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1556741533-6e6a3bd8e341?w=500&auto=format" alt="Consulting trade"></div>
+                    <div class="card-content"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h3>Trade Consulting</h3><p>Stratégies d'export, financements, veille réglementaire.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bloc interactif Taux indicatifs + animation simulation -->
+    <!-- Dégradé & Widget dynamique -->
     <div class="container">
-        <div class="exchange-card">
-            <div class="exchange-text">
-                <h3><i class="fas fa-chart-simple"></i> Taux de change indicatifs</h3>
-                <p>Suivez les devises clés pour vos transactions internationales</p>
-            </div>
-            <div class="live-rates" id="rateWidget">
-                <span><i class="fas fa-dollar-sign"></i> USD/EUR: --</span>
-                <span><i class="fas fa-pound-sign"></i> GBP/EUR: --</span>
-                <span><i class="fas fa-yen-sign"></i> CNY/EUR: --</span>
+        <div class="map-vibe">
+            <div class="flex-offer">
+                <div class="offer-text">
+                    <h3><i class="fas fa-charging-station"></i> Indicateurs en temps réel</h3>
+                    <p>Suivi des devises & fret index — transparence totale</p>
+                </div>
+                <div class="live-data" id="liveRates">
+                    <span><i class="fas fa-dollar-sign"></i> USD/EUR: --</span>
+                    <span><i class="fas fa-chart-simple"></i> Baltic Dry Index: --</span>
+                    <span><i class="fas fa-yen-sign"></i> CNY/EUR: --</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- À propos section valeurs -->
+    <!-- About avec galerie d'images et dégradé UI -->
     <section id="about" class="section">
         <div class="container about-grid">
-            <div class="about-text">
-                <h3>Pourquoi choisir GlobalTradEx ?</h3>
-                <p>Nous sommes un accélérateur de commerce international. Notre équipe bilingue, nos bureaux en Europe, Asie et Afrique, et notre réseau de transitaires agréés garantissent des délais maîtrisés et une transparence totale.</p>
-                <ul class="about-list">
-                    <li><i class="fas fa-check-circle"></i> 100% conformité douanière & certifications</li>
-                    <li><i class="fas fa-clock"></i> Délais respectés avec notifications en temps réel</li>
-                    <li><i class="fas fa-handshake"></i> Tarifs négociés via volumes groupés</li>
-                    <li><i class="fas fa-headset"></i> Account manager dédié à chaque client</li>
-                </ul>
+            <div class="about-gallery">
+                <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=500&auto=format" alt="Port de Rotterdam">
+                <img src="https://images.unsplash.com/photo-1590650153855-d84c0a8ce6ff?w=500&auto=format" alt="Logistics warehouse">
+                <img src="https://images.unsplash.com/photo-1601584117797-b21c3b0be0b2?w=500&auto=format" alt="Global meeting">
+                <img src="https://images.unsplash.com/photo-1556745753-b2904672b3d3?w=500&auto=format" alt="Digital supply chain">
             </div>
-            <div class="about-image">
-                <i class="fas fa-globe-africa" style="font-size: 8rem; color: #0a66b9; opacity: 0.7;"></i>
-                <p style="margin-top: 20px; font-weight: 500;">Présence sur 4 continents</p>
+            <div class="about-text">
+                <h3>Une empreinte mondiale <i class="fas fa-handshake"></i></h3>
+                <p>Bureaux opérationnels au Havre, Shanghai, Casablanca et Miami. Notre équipe interculturelle combine expertise douanière et innovation digitale pour fluidifier vos échanges.</p>
+                <div class="pill-list">
+                    <span class="pill">✅ 100% conformité</span>
+                    <span class="pill">📦 Tracking en temps réel</span>
+                    <span class="pill">⚡ Dédouanement 48h</span>
+                    <span class="pill">🌱 Solutions bas carbone</span>
+                </div>
+                <button class="btn-gradient" id="aboutCta">Découvrir nos hubs <i class="fas fa-map-marker-alt"></i></button>
             </div>
         </div>
     </section>
 
-    <!-- Contact & devis moderne -->
-    <section id="contact" class="section" style="padding-top: 20px;">
+    <!-- Contact premium avec dégradé et image -->
+    <section id="contact" class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Discutons de votre prochain projet</h2>
-                <p>Remplissez le formulaire, un expert en import-export vous répond sous 24h.</p>
+                <h2>Prêt à internationaliser vos flux ?</h2>
+                <p>Remplissez le formulaire, un directeur de compte vous rappelle sous 2h (hors WE).</p>
             </div>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-grid">
-                        <div class="input-group">
-                            <label>Nom complet</label>
-                            <input type="text" id="fullname" placeholder="Jean Dupont" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Email professionnel</label>
-                            <input type="email" id="email" placeholder="contact@entreprise.com" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Téléphone</label>
-                            <input type="tel" id="phone" placeholder="+33 6 XX XX XX XX">
-                        </div>
-                        <div class="input-group">
-                            <label>Type de prestation</label>
-                            <select id="serviceType">
-                                <option>Importation</option>
-                                <option>Exportation</option>
-                                <option>Dédouanement</option>
-                                <option>Conseil stratégique</option>
-                            </select>
-                        </div>
-                        <div class="input-group full-width">
-                            <label>Message / Marchandises concernées</label>
-                            <textarea rows="4" id="message" placeholder="Décrivez votre besoin, volume, origine/destination..."></textarea>
-                        </div>
-                        <div class="input-group full-width">
-                            <button type="submit" id="submitBtn">Envoyer la demande <i class="fas fa-paper-plane"></i></button>
-                        </div>
+            <div class="contact-premium">
+                <form id="modernForm">
+                    <div class="form-2cols">
+                        <input type="text" id="nameContact" class="input-field" placeholder="Nom & Prénom" required>
+                        <input type="email" id="emailContact" class="input-field" placeholder="Email professionnel" required>
+                        <input type="tel" id="phoneContact" class="input-field" placeholder="Téléphone (indicatif)">
+                        <select id="countryInterest" class="input-field">
+                            <option>Pays d'origine / destination</option>
+                            <option>France → Asie</option>
+                            <option>Europe → Afrique</option>
+                            <option>Amériques</option>
+                            <option>Autre : précisez dans message</option>
+                        </select>
+                        <textarea id="msgContact" rows="3" class="input-field" placeholder="Nature des marchandises, volume, besoin spécifique..." style="grid-column: span 2;"></textarea>
+                        <button type="submit" class="btn-gradient" style="grid-column: span 2; justify-self: start; padding: 0.8rem 2rem;">Envoyer la demande <i class="fas fa-paper-plane"></i></button>
                     </div>
+                    <div id="formStatus" style="margin-top: 1rem; font-weight: 500;"></div>
                 </form>
-                <div id="formFeedback" style="margin-top: 16px; font-weight: 500; text-align: center;"></div>
             </div>
         </div>
     </section>
@@ -576,121 +549,82 @@
 <footer>
     <div class="container">
         <div class="footer-grid">
-            <div class="footer-col">
-                <h4>GlobalTradEx</h4>
-                <p>Import-Export & Logistique<br>Le Havre - Marseille - Casablanca - Shanghai</p>
-            </div>
-            <div class="footer-col">
-                <h4>Liens utiles</h4>
-                <p><a href="#services">Services</a><br><a href="#about">À propos</a><br><a href="#contact">Contact commercial</a></p>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p><i class="fas fa-envelope"></i> contact@globaltradex.com<br>
-                <i class="fas fa-phone-alt"></i> +33 1 88 66 44 22<br>
-                <i class="fas fa-clock"></i> Lun-Ven: 9h-19h</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
+            <div><h4 style="color:white;">Global Nexus</h4><p>Import-Export sans frontières<br>Leader en solutions douanières</p></div>
+            <div><h4 style="color:white;">Explorer</h4><p><a href="#services" style="color:#BED3E3; text-decoration:none;">Services</a><br><a href="#about" style="color:#BED3E3; text-decoration:none;">Présence</a><br><a href="#contact" style="color:#BED3E3; text-decoration:none;">Contact pro</a></p></div>
+            <div><h4 style="color:white;">Contact</h4><p><i class="fas fa-phone-alt"></i> +33 1 70 88 44 22<br>contact@globalnexus.com<br><i class="fab fa-linkedin"></i> <i class="fab fa-twitter"></i> <i class="fab fa-whatsapp"></i></p></div>
         </div>
-        <div class="copyright">
-            © 2026 GlobalTradEx — Votre partenaire international. Tous droits réservés.
-        </div>
+        <div class="copyright" style="text-align:center; margin-top: 2rem; opacity:0.7;">© 2026 Global Nexus — Design UI/UX moderne & immersif</div>
     </div>
 </footer>
 
 <script>
-    // Simulation de taux de change en temps réel (API mock mais dynamique)
-    function fetchMockExchangeRates() {
-        // Génération de valeurs légèrement fluctuantes pour l'effet moderne
-        const usdToEur = (0.92 + Math.random() * 0.03).toFixed(3);
-        const gbpToEur = (1.17 + Math.random() * 0.02).toFixed(3);
-        const cnyToEur = (0.127 + Math.random() * 0.003).toFixed(4);
-        document.getElementById('rateWidget').innerHTML = `
-            <span><i class="fas fa-dollar-sign"></i> USD/EUR: ${usdToEur}</span>
-            <span><i class="fas fa-pound-sign"></i> GBP/EUR: ${gbpToEur}</span>
-            <span><i class="fas fa-yen-sign"></i> CNY/EUR: ${cnyToEur}</span>
+    // Simulation taux + BDI (Baltic Dry Index)
+    function updateRates() {
+        const usdEur = (0.91 + Math.random() * 0.04).toFixed(3);
+        const cnyEur = (0.128 + Math.random() * 0.006).toFixed(4);
+        const bdi = Math.floor(1800 + Math.random() * 400);
+        document.getElementById('liveRates').innerHTML = `
+            <span><i class="fas fa-dollar-sign"></i> USD/EUR: ${usdEur}</span>
+            <span><i class="fas fa-chart-simple"></i> Baltic Dry Index: ${bdi}</span>
+            <span><i class="fas fa-yen-sign"></i> CNY/EUR: ${cnyEur}</span>
         `;
     }
-    fetchMockExchangeRates();
-    // Mise à jour toutes les 25 secondes pour simuler des données live
-    setInterval(fetchMockExchangeRates, 25000);
+    updateRates();
+    setInterval(updateRates, 28000);
 
-    // Gestion du formulaire de contact avec notification douce
-    const form = document.getElementById('contactForm');
-    const feedbackDiv = document.getElementById('formFeedback');
-    form.addEventListener('submit', function(e) {
+    // Scroll smooth + gestion formulaire
+    const scrollToContact = () => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('heroDevis')?.addEventListener('click', scrollToContact);
+    document.getElementById('ctaNav')?.addEventListener('click', scrollToContact);
+    document.getElementById('aboutCta')?.addEventListener('click', scrollToContact);
+
+    // Formulaire avec feedback UX moderne
+    const formEl = document.getElementById('modernForm');
+    const statusDiv = document.getElementById('formStatus');
+    formEl.addEventListener('submit', (e) => {
         e.preventDefault();
-        const fullname = document.getElementById('fullname').value.trim();
-        const email = document.getElementById('email').value.trim();
-        if (!fullname || !email) {
-            feedbackDiv.innerHTML = '<span style="color:#d9534f;">❌ Merci de renseigner votre nom et email.</span>';
-            setTimeout(() => feedbackDiv.innerHTML = '', 3000);
+        const name = document.getElementById('nameContact').value.trim();
+        const email = document.getElementById('emailContact').value.trim();
+        if (!name || !email) {
+            statusDiv.innerHTML = '<span style="color:#d9534f;">⚠️ Veuillez renseigner nom et email professionnel</span>';
+            setTimeout(() => statusDiv.innerHTML = '', 3000);
             return;
         }
-        // Simulation d'envoi réussi (front uniquement)
-        feedbackDiv.innerHTML = '<span style="color:#2e7d32;">✅ Demande envoyée ! Un expert GlobalTradEx vous recontactera rapidement.</span>';
-        form.reset();
-        setTimeout(() => feedbackDiv.innerHTML = '', 5000);
-        // Optionnel scroll smooth et petite animation
+        statusDiv.innerHTML = '<span style="color:#2A9D8F;">✅ Demande reçue — Un expert Global Nexus vous contactera sous 24h.</span>';
+        formEl.reset();
+        setTimeout(() => statusDiv.innerHTML = '', 5000);
     });
 
-    // CTA qui scroll vers le formulaire (devis express)
-    const heroBtn = document.getElementById('heroCta');
-    const demoQuoteBtn = document.getElementById('demoQuoteBtn');
-    function scrollToContact() {
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    }
-    heroBtn.addEventListener('click', scrollToContact);
-    if(demoQuoteBtn) demoQuoteBtn.addEventListener('click', scrollToContact);
-
-    // Animation subtile des statistiques (juste effet visuel)
+    // Animation progressive stats lors du scroll
     const statNumbers = document.querySelectorAll('.stat-item h3');
-    if(statNumbers.length) {
-        const animateValue = (el, start, end, duration) => {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                el.innerText = Math.floor(progress * (end - start) + start) + (el.innerText.includes('+') ? '+' : '');
-                if (progress < 1) window.requestAnimationFrame(step);
-                else el.innerText = end + (el.innerText.includes('+') ? '' : (el.innerText.includes('%') ? '%' : ''));
-            };
-            window.requestAnimationFrame(step);
-        };
-        // Appliquer seulement une fois quand la section est visible (optionnel)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    const stats = document.querySelectorAll('.stat-item h3');
-                    if(stats[0] && stats[0].innerText === '95+') {
-                        animateValue(stats[0], 0, 95, 800);
-                        animateValue(stats[1], 0, 3200, 1000);
-                        animateValue(stats[2], 0, 247, 700);
-                        stats[2].innerText = '24/7'; // petit hack pour que le dernier soit sympa
-                    }
-                    observer.disconnect();
+    const observerStats = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statEls = document.querySelectorAll('.stat-item h3');
+                if (statEls[0] && statEls[0].innerText === '98%') {
+                    const animate = (el, target, suffix) => {
+                        let current = 0;
+                        const step = () => {
+                            current += Math.ceil(target / 25);
+                            if (current < target) {
+                                el.innerText = current + suffix;
+                                requestAnimationFrame(step);
+                            } else {
+                                el.innerText = target + suffix;
+                            }
+                        };
+                        requestAnimationFrame(step);
+                    };
+                    animate(statEls[0], 98, '%');
+                    animate(statEls[1], 4500, '+');
+                    animate(statEls[2], 24, 'h');
                 }
-            });
-        }, {threshold: 0.3});
-        const heroStatsSection = document.querySelector('.hero-stats');
-        if(heroStatsSection) observer.observe(heroStatsSection);
-    }
-
-    // Faire disparaitre le loader (aucun mais ajouter un petit effet doux sur les liens)
-    document.querySelectorAll('.nav-links a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if(targetId && targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetElem = document.querySelector(targetId);
-                if(targetElem) targetElem.scrollIntoView({ behavior: 'smooth' });
+                observerStats.disconnect();
             }
         });
-    });
+    }, { threshold: 0.3 });
+    const heroStatsDiv = document.querySelector('.hero-stats');
+    if (heroStatsDiv) observerStats.observe(heroStatsDiv);
 </script>
 </body>
 </html>
