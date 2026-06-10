@@ -1,630 +1,435 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Global Nexus | Import-Export Premium</title>
-    <!-- Font Awesome 6 Pro (gratuit) + Google Fonts (Sora + Inter) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Trade Export</title>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #fefefe;
-            color: #0A1C2F;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-        /* Dégradés modernes et variables */
-        :root {
-            --primary-deep: #0A2647;
-            --primary-ocean: #1B4A7A;
-            --accent-gold: #F4A261;
-            --accent-teal: #2A9D8F;
-            --grad-1: linear-gradient(135deg, #0A2647 0%, #1B4A7A 100%);
-            --grad-2: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-            --grad-gold: linear-gradient(145deg, #F4A261, #E76F51);
-            --shadow-xl: 0 25px 45px -12px rgba(0,0,0,0.25);
-            --card-radius: 2rem;
-        }
+<style>
+:root{
+    --primary:#0b3d91;
+    --secondary:#0f172a;
+    --gold:#d4af37;
+    --light:#f8fafc;
+}
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+body{
+    font-family: "Segoe UI", sans-serif;
+    overflow-x:hidden;
+}
 
-        /* Glassmorphisme / Header */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 200;
-            background: rgba(255,255,255,0.78);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            padding: 0.8rem 0;
-        }
+.navbar{
+    background:rgba(15,23,42,.95);
+    backdrop-filter:blur(10px);
+}
 
-        .header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(rgba(11,61,145,.85),rgba(15,23,42,.9)),
+    url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop') center/cover;
+    color:white;
+}
 
-        .logo h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.9rem;
-            font-weight: 800;
-            background: var(--grad-1);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.02em;
-        }
+.hero h1{
+    font-size:4rem;
+    font-weight:800;
+}
 
-        .logo span {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #4A627A;
-            letter-spacing: 0.5px;
-        }
+.hero span{
+    color:var(--gold);
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
+.btn-gold{
+    background:var(--gold);
+    color:#000;
+    font-weight:700;
+    border:none;
+}
 
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 600;
-            color: #1F3A4B;
-            transition: 0.2s;
-            font-size: 0.95rem;
-        }
+.btn-gold:hover{
+    background:#e6c55a;
+}
 
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
+.section-title{
+    font-weight:800;
+    color:var(--primary);
+    margin-bottom:15px;
+}
 
-        .btn-gradient {
-            background: var(--grad-1);
-            color: white;
-            padding: 0.7rem 1.6rem;
-            border-radius: 3rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 18px rgba(27,74,122,0.2);
-        }
+.section-subtitle{
+    color:#6c757d;
+    margin-bottom:50px;
+}
 
-        .btn-gradient:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px -8px rgba(27,74,122,0.4);
-        }
+.stats{
+    background:linear-gradient(135deg,#0b3d91,#091f49);
+    color:white;
+}
 
-        /* Hero section avec image et dégradé arrière */
-        .hero {
-            position: relative;
-            background: radial-gradient(circle at 80% 20%, rgba(244,162,97,0.08), rgba(10,38,71,0.02)), var(--grad-2);
-            padding: 5rem 0 6rem;
-            overflow: hidden;
-        }
+.stat-card{
+    text-align:center;
+}
 
-        .hero-grid {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            flex-wrap: wrap;
-        }
+.stat-number{
+    font-size:2.5rem;
+    font-weight:800;
+    color:var(--gold);
+}
 
-        .hero-text {
-            flex: 1.2;
-        }
+.service-card{
+    border:none;
+    border-radius:20px;
+    transition:.3s;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
 
-        .badge {
-            background: rgba(244,162,97,0.2);
-            backdrop-filter: blur(4px);
-            display: inline-block;
-            padding: 0.4rem 1.2rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #C4622E;
-            margin-bottom: 1.5rem;
-        }
+.service-card:hover{
+    transform:translateY(-10px);
+}
 
-        .hero-text h1 {
-            font-family: 'Sora', sans-serif;
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            background: linear-gradient(130deg, #0A2647, #2C5A8C);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 1.5rem;
-        }
+.service-icon{
+    font-size:3rem;
+    color:var(--primary);
+}
 
-        .hero-text p {
-            font-size: 1.2rem;
-            color: #2C4C6C;
-            max-width: 90%;
-            margin-bottom: 2rem;
-        }
+.about{
+    background:#f8fafc;
+}
 
-        .hero-stats {
-            display: flex;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
+.gallery img{
+    border-radius:20px;
+    height:250px;
+    object-fit:cover;
+    width:100%;
+}
 
-        .stat-item h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #0A2647;
-        }
+.contact{
+    background:linear-gradient(135deg,#0b3d91,#091f49);
+    color:white;
+}
 
-        .hero-image {
-            flex: 1;
-            filter: drop-shadow(0 20px 20px rgba(0,0,0,0.1));
-        }
+.form-control{
+    padding:12px;
+}
 
-        .hero-image img {
-            width: 100%;
-            max-width: 460px;
-            border-radius: 2rem;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
+.footer{
+    background:#0f172a;
+    color:white;
+}
 
-        /* Section Services avec cartes image + dégradés */
-        .section {
-            padding: 5rem 0;
-        }
+.footer a{
+    color:#cbd5e1;
+    text-decoration:none;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-title h2 {
-            font-family: 'Sora', sans-serif;
-            font-size: 2.6rem;
-            background: linear-gradient(125deg, #0A2647, #2C5A8C);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: var(--card-radius);
-            overflow: hidden;
-            box-shadow: 0 12px 28px -10px rgba(0,0,0,0.08);
-            transition: all 0.3s cubic-bezier(0.2,0.9,0.4,1.1);
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .card-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .service-card:hover .card-img img {
-            transform: scale(1.05);
-        }
-
-        .card-content {
-            padding: 1.8rem;
-        }
-
-        .service-icon {
-            font-size: 2.6rem;
-            background: linear-gradient(145deg, #F4F9FF, #E6F0FA);
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 1.5rem;
-            margin-bottom: 1.2rem;
-            color: #1B4A7A;
-        }
-
-        /* zone de dégradé dynamique "monde connecté" */
-        .map-vibe {
-            background: var(--grad-1);
-            border-radius: 4rem;
-            margin: 2rem 0;
-            padding: 3.5rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .map-vibe::before {
-            content: "🌍";
-            font-size: 12rem;
-            position: absolute;
-            right: -20px;
-            bottom: -30px;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-
-        .flex-offer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            color: white;
-        }
-
-        .offer-text h3 {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .live-data {
-            background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(12px);
-            padding: 1rem 2rem;
-            border-radius: 3rem;
-            font-weight: 600;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        /* about section avec photos */
-        .about-grid {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .about-gallery {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .about-gallery img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 1.5rem;
-            box-shadow: 0 12px 18px -8px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-
-        .about-gallery img:hover {
-            transform: scale(1.02);
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text h3 {
-            font-size: 2.2rem;
-            font-family: 'Sora', sans-serif;
-        }
-
-        .pill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin: 2rem 0;
-        }
-
-        .pill {
-            background: #EFF5FB;
-            padding: 0.5rem 1.2rem;
-            border-radius: 3rem;
-            font-weight: 600;
-            color: #0A2647;
-        }
-
-        /* formulaire premium */
-        .contact-premium {
-            background: linear-gradient(115deg, #FFFFFF 0%, #F9FCFE 100%);
-            border-radius: 2.8rem;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-xl);
-            border: 1px solid rgba(42,157,143,0.2);
-        }
-
-        .form-2cols {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 1rem 1.2rem;
-            border-radius: 2rem;
-            border: 1px solid #E2EDF2;
-            background: white;
-            font-family: inherit;
-            transition: 0.2s;
-        }
-
-        .input-field:focus {
-            border-color: var(--accent-teal);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(42,157,143,0.15);
-        }
-
-        footer {
-            background: #071B2B;
-            color: #BED3E3;
-            padding: 3rem 0 1.5rem;
-            margin-top: 4rem;
-        }
-
-        .footer-grid {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        @media (max-width: 800px) {
-            .hero-text h1 { font-size: 2.6rem; }
-            .form-2cols { grid-template-columns: 1fr; }
-            .about-gallery { grid-template-columns: 1fr; }
-        }
-    </style>
+@media(max-width:768px){
+    .hero h1{
+        font-size:2.5rem;
+    }
+}
+</style>
 </head>
 <body>
 
-<header>
-    <div class="container header-flex">
-        <div class="logo">
-            <h1>Global Nexus</h1>
-            <span>Import • Export • Worldwide Logistics</span>
-        </div>
-        <div class="nav-links">
-            <a href="#home">Accueil</a>
-            <a href="#services">Prestations</a>
-            <a href="#about">Présence</a>
-            <a href="#contact">Devis</a>
-            <button class="btn-gradient" id="ctaNav">+ Contact Pro</button>
-        </div>
-    </div>
-</header>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container">
+<a class="navbar-brand fw-bold" href="#">
+<i class="bi bi-globe2 text-warning"></i>
+ Global Trade Export
+</a>
 
-<main>
-    <!-- Hero section haute résolution image -->
-    <section id="home" class="hero">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <div class="badge"><i class="fas fa-ship"></i> 24/7 Global Trade Solutions</div>
-                <h1>L'avenir du commerce international</h1>
-                <p>Déverrouillez de nouveaux marchés avec notre réseau intégré de fret maritime, aérien & dédouanement premium. +85 pays desservis.</p>
-                <div class="hero-stats">
-                    <div class="stat-item"><h3>98%</h3><p>Satisfaction client</p></div>
-                    <div class="stat-item"><h3>4500+</h3><p>Containers / an</p></div>
-                    <div class="stat-item"><h3>24h</h3><p>Réponse devis</p></div>
-                </div>
-                <button class="btn-gradient" id="heroDevis" style="margin-top: 1.2rem; font-size: 1rem;">Obtenir un devis express <i class="fas fa-arrow-right"></i></button>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format" alt="Cargo ship freight" style="border-radius: 2rem;">
-            </div>
-        </div>
-    </section>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-    <!-- Services avec images riches -->
-    <section id="services" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Solutions sur-mesure <i class="fas fa-globe-americas"></i></h2>
-                <p>Des chaînes logistiques fluides, digitalisées et résilientes</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=500&auto=format" alt="Fret maritime"></div>
-                    <div class="card-content"><div class="service-icon"><i class="fas fa-ship"></i></div><h3>Fret Maritime</h3><p>FCL/LCL, transit time optimisé, assurance cargo.</p></div>
-                </div>
-                <div class="service-card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&auto=format" alt="Avion cargo"></div>
-                    <div class="card-content"><div class="service-icon"><i class="fas fa-plane"></i></div><h3>Fret Aérien</h3><p>Urgence, pharma, high-tech : solutions premium express.</p></div>
-                </div>
-                <div class="service-card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=500&auto=format" alt="Douane numérique"></div>
-                    <div class="card-content"><div class="service-icon"><i class="fas fa-passport"></i></div><h3>Dédouanement</h3><p>Déclarations, conformité, transitaires agréés en douane.</p></div>
-                </div>
-                <div class="service-card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1556741533-6e6a3bd8e341?w=500&auto=format" alt="Consulting trade"></div>
-                    <div class="card-content"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h3>Trade Consulting</h3><p>Stratégies d'export, financements, veille réglementaire.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
+<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+<li class="nav-item"><a class="nav-link" href="#about">À Propos</a></li>
+<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
 
-    <!-- Dégradé & Widget dynamique -->
-    <div class="container">
-        <div class="map-vibe">
-            <div class="flex-offer">
-                <div class="offer-text">
-                    <h3><i class="fas fa-charging-station"></i> Indicateurs en temps réel</h3>
-                    <p>Suivi des devises & fret index — transparence totale</p>
-                </div>
-                <div class="live-data" id="liveRates">
-                    <span><i class="fas fa-dollar-sign"></i> USD/EUR: --</span>
-                    <span><i class="fas fa-chart-simple"></i> Baltic Dry Index: --</span>
-                    <span><i class="fas fa-yen-sign"></i> CNY/EUR: --</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-7">
+<h1>
+Votre partenaire mondial en
+<span>Import & Export</span>
+</h1>
 
-    <!-- About avec galerie d'images et dégradé UI -->
-    <section id="about" class="section">
-        <div class="container about-grid">
-            <div class="about-gallery">
-                <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=500&auto=format" alt="Port de Rotterdam">
-                <img src="https://images.unsplash.com/photo-1590650153855-d84c0a8ce6ff?w=500&auto=format" alt="Logistics warehouse">
-                <img src="https://images.unsplash.com/photo-1601584117797-b21c3b0be0b2?w=500&auto=format" alt="Global meeting">
-                <img src="https://images.unsplash.com/photo-1556745753-b2904672b3d3?w=500&auto=format" alt="Digital supply chain">
-            </div>
-            <div class="about-text">
-                <h3>Une empreinte mondiale <i class="fas fa-handshake"></i></h3>
-                <p>Bureaux opérationnels au Havre, Shanghai, Casablanca et Miami. Notre équipe interculturelle combine expertise douanière et innovation digitale pour fluidifier vos échanges.</p>
-                <div class="pill-list">
-                    <span class="pill">✅ 100% conformité</span>
-                    <span class="pill">📦 Tracking en temps réel</span>
-                    <span class="pill">⚡ Dédouanement 48h</span>
-                    <span class="pill">🌱 Solutions bas carbone</span>
-                </div>
-                <button class="btn-gradient" id="aboutCta">Découvrir nos hubs <i class="fas fa-map-marker-alt"></i></button>
-            </div>
-        </div>
-    </section>
+<p class="lead my-4">
+Nous accompagnons les entreprises dans leurs opérations commerciales
+internationales avec des solutions logistiques fiables et sécurisées.
+</p>
 
-    <!-- Contact premium avec dégradé et image -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Prêt à internationaliser vos flux ?</h2>
-                <p>Remplissez le formulaire, un directeur de compte vous rappelle sous 2h (hors WE).</p>
-            </div>
-            <div class="contact-premium">
-                <form id="modernForm">
-                    <div class="form-2cols">
-                        <input type="text" id="nameContact" class="input-field" placeholder="Nom & Prénom" required>
-                        <input type="email" id="emailContact" class="input-field" placeholder="Email professionnel" required>
-                        <input type="tel" id="phoneContact" class="input-field" placeholder="Téléphone (indicatif)">
-                        <select id="countryInterest" class="input-field">
-                            <option>Pays d'origine / destination</option>
-                            <option>France → Asie</option>
-                            <option>Europe → Afrique</option>
-                            <option>Amériques</option>
-                            <option>Autre : précisez dans message</option>
-                        </select>
-                        <textarea id="msgContact" rows="3" class="input-field" placeholder="Nature des marchandises, volume, besoin spécifique..." style="grid-column: span 2;"></textarea>
-                        <button type="submit" class="btn-gradient" style="grid-column: span 2; justify-self: start; padding: 0.8rem 2rem;">Envoyer la demande <i class="fas fa-paper-plane"></i></button>
-                    </div>
-                    <div id="formStatus" style="margin-top: 1rem; font-weight: 500;"></div>
-                </form>
-            </div>
-        </div>
-    </section>
-</main>
+<a href="#contact" class="btn btn-gold btn-lg me-3">
+Demander un devis
+</a>
 
-<footer>
-    <div class="container">
-        <div class="footer-grid">
-            <div><h4 style="color:white;">Global Nexus</h4><p>Import-Export sans frontières<br>Leader en solutions douanières</p></div>
-            <div><h4 style="color:white;">Explorer</h4><p><a href="#services" style="color:#BED3E3; text-decoration:none;">Services</a><br><a href="#about" style="color:#BED3E3; text-decoration:none;">Présence</a><br><a href="#contact" style="color:#BED3E3; text-decoration:none;">Contact pro</a></p></div>
-            <div><h4 style="color:white;">Contact</h4><p><i class="fas fa-phone-alt"></i> +33 1 70 88 44 22<br>contact@globalnexus.com<br><i class="fab fa-linkedin"></i> <i class="fab fa-twitter"></i> <i class="fab fa-whatsapp"></i></p></div>
-        </div>
-        <div class="copyright" style="text-align:center; margin-top: 2rem; opacity:0.7;">© 2026 Global Nexus — Design UI/UX moderne & immersif</div>
-    </div>
+<a href="#services" class="btn btn-outline-light btn-lg">
+Nos services
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<section class="stats py-5">
+<div class="container">
+<div class="row">
+
+<div class="col-md-3 stat-card">
+<div class="stat-number" data-target="85">0</div>
+<p>Pays desservis</p>
+</div>
+
+<div class="col-md-3 stat-card">
+<div class="stat-number" data-target="2500">0</div>
+<p>Clients</p>
+</div>
+
+<div class="col-md-3 stat-card">
+<div class="stat-number" data-target="50000">0</div>
+<p>Expéditions</p>
+</div>
+
+<div class="col-md-3 stat-card">
+<div class="stat-number" data-target="98">0</div>
+<p>% Satisfaction</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="py-5" id="services">
+<div class="container">
+
+<div class="text-center">
+<h2 class="section-title">Nos Services</h2>
+<p class="section-subtitle">
+Des solutions complètes pour votre activité internationale
+</p>
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="card service-card h-100 p-4">
+<i class="bi bi-box-seam service-icon"></i>
+<h4 class="mt-3">Importation</h4>
+<p>Gestion complète des achats internationaux.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card service-card h-100 p-4">
+<i class="bi bi-airplane service-icon"></i>
+<h4 class="mt-3">Transport Aérien</h4>
+<p>Livraison rapide et sécurisée partout dans le monde.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card service-card h-100 p-4">
+<i class="bi bi-ship service-icon"></i>
+<h4 class="mt-3">Transport Maritime</h4>
+<p>Solutions logistiques adaptées aux grands volumes.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card service-card h-100 p-4">
+<i class="bi bi-file-earmark-text service-icon"></i>
+<h4 class="mt-3">Dédouanement</h4>
+<p>Gestion simplifiée des formalités douanières.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card service-card h-100 p-4">
+<i class="bi bi-building service-icon"></i>
+<h4 class="mt-3">Entreposage</h4>
+<p>Stockage sécurisé dans nos infrastructures modernes.</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="card service-card h-100 p-4">
+<i class="bi bi-globe service-icon"></i>
+<h4 class="mt-3">Exportation</h4>
+<p>Accompagnement vers de nouveaux marchés internationaux.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about py-5" id="about">
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+<img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=1200&auto=format&fit=crop"
+class="img-fluid rounded-4 shadow">
+</div>
+
+<div class="col-lg-6">
+<h2 class="section-title">
+Pourquoi nous choisir ?
+</h2>
+
+<p>
+Depuis plus de 15 ans, nous accompagnons les entreprises
+dans leurs échanges commerciaux à travers le monde.
+</p>
+
+<ul class="list-unstyled">
+<li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Réseau international</li>
+<li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Support 24h/24</li>
+<li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Solutions personnalisées</li>
+<li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Tarifs compétitifs</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="py-5 gallery">
+<div class="container">
+
+<div class="text-center">
+<h2 class="section-title">Nos Opérations</h2>
+<p class="section-subtitle">
+Découvrez notre expertise logistique
+</p>
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="col-md-4">
+<img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="col-md-4">
+<img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact py-5" id="contact">
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-6">
+<h2 class="fw-bold mb-4">Contactez-nous</h2>
+
+<p>
+Boulevard du Commerce International<br>
+Cotonou, Bénin
+</p>
+
+<p>
+<i class="bi bi-telephone"></i> +229 01 90 00 00 00
+</p>
+
+<p>
+<i class="bi bi-envelope"></i> contact@globaltradeexport.com
+</p>
+</div>
+
+<div class="col-lg-6">
+
+<form class="bg-white p-4 rounded-4 shadow">
+<input class="form-control mb-3" placeholder="Nom complet">
+<input class="form-control mb-3" placeholder="Email">
+<input class="form-control mb-3" placeholder="Téléphone">
+
+<textarea class="form-control mb-3" rows="4"
+placeholder="Votre message"></textarea>
+
+<button class="btn btn-primary w-100">
+Envoyer la demande
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer py-4">
+<div class="container text-center">
+
+<h5>Global Trade Export</h5>
+
+<p>
+Import • Export • Logistique Internationale
+</p>
+
+<p class="mb-0">
+© 2026 Tous droits réservés.
+</p>
+
+</div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-    // Simulation taux + BDI (Baltic Dry Index)
-    function updateRates() {
-        const usdEur = (0.91 + Math.random() * 0.04).toFixed(3);
-        const cnyEur = (0.128 + Math.random() * 0.006).toFixed(4);
-        const bdi = Math.floor(1800 + Math.random() * 400);
-        document.getElementById('liveRates').innerHTML = `
-            <span><i class="fas fa-dollar-sign"></i> USD/EUR: ${usdEur}</span>
-            <span><i class="fas fa-chart-simple"></i> Baltic Dry Index: ${bdi}</span>
-            <span><i class="fas fa-yen-sign"></i> CNY/EUR: ${cnyEur}</span>
-        `;
-    }
-    updateRates();
-    setInterval(updateRates, 28000);
+const counters=document.querySelectorAll('.stat-number');
 
-    // Scroll smooth + gestion formulaire
-    const scrollToContact = () => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-    document.getElementById('heroDevis')?.addEventListener('click', scrollToContact);
-    document.getElementById('ctaNav')?.addEventListener('click', scrollToContact);
-    document.getElementById('aboutCta')?.addEventListener('click', scrollToContact);
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.getAttribute('data-target');
+const count=+counter.innerText;
 
-    // Formulaire avec feedback UX moderne
-    const formEl = document.getElementById('modernForm');
-    const statusDiv = document.getElementById('formStatus');
-    formEl.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('nameContact').value.trim();
-        const email = document.getElementById('emailContact').value.trim();
-        if (!name || !email) {
-            statusDiv.innerHTML = '<span style="color:#d9534f;">⚠️ Veuillez renseigner nom et email professionnel</span>';
-            setTimeout(() => statusDiv.innerHTML = '', 3000);
-            return;
-        }
-        statusDiv.innerHTML = '<span style="color:#2A9D8F;">✅ Demande reçue — Un expert Global Nexus vous contactera sous 24h.</span>';
-        formEl.reset();
-        setTimeout(() => statusDiv.innerHTML = '', 5000);
-    });
+const increment=target/100;
 
-    // Animation progressive stats lors du scroll
-    const statNumbers = document.querySelectorAll('.stat-item h3');
-    const observerStats = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statEls = document.querySelectorAll('.stat-item h3');
-                if (statEls[0] && statEls[0].innerText === '98%') {
-                    const animate = (el, target, suffix) => {
-                        let current = 0;
-                        const step = () => {
-                            current += Math.ceil(target / 25);
-                            if (current < target) {
-                                el.innerText = current + suffix;
-                                requestAnimationFrame(step);
-                            } else {
-                                el.innerText = target + suffix;
-                            }
-                        };
-                        requestAnimationFrame(step);
-                    };
-                    animate(statEls[0], 98, '%');
-                    animate(statEls[1], 4500, '+');
-                    animate(statEls[2], 24, 'h');
-                }
-                observerStats.disconnect();
-            }
-        });
-    }, { threshold: 0.3 });
-    const heroStatsDiv = document.querySelector('.hero-stats');
-    if (heroStatsDiv) observerStats.observe(heroStatsDiv);
+if(count<target){
+counter.innerText=Math.ceil(count+increment);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
+}
+}
+update();
+});
 </script>
+
 </body>
 </html>
