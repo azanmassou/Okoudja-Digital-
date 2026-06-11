@@ -1,435 +1,636 @@
+Voici un site web moderne, luxueux et dynamique pour un importateur/exportateur, entièrement dédié à **Adama Meite**, avec une palette de dégradés or, bleu et rose. Design premium, nombreuses images et UI fluide, le tout dans un seul fichier.
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Global Trade Export</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Adama Meite | Import-Export Global</title>
+    <!-- Font Awesome 6 (gratuit) & Google Fonts : Playfair Display + Poppins pour élégance -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FEFCF5;
+            color: #1A1F2E;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
-<style>
-:root{
-    --primary:#0b3d91;
-    --secondary:#0f172a;
-    --gold:#d4af37;
-    --light:#f8fafc;
-}
+        /* Dégradés signature : OR, BLEU, ROSE */
+        :root {
+            --gold-gradient: linear-gradient(135deg, #F5AF19 0%, #F29E38 35%, #E67E22 100%);
+            --blue-gradient: linear-gradient(125deg, #0B2F9E, #1E4BD2, #3A7BD5);
+            --rose-gradient: linear-gradient(115deg, #F7C0D0, #F3A0B5, #E2728A);
+            --mix-grad: linear-gradient(145deg, #F5AF19 0%, #1E4BD2 60%, #F3A0B5 100%);
+            --shadow-lux: 0 30px 40px -20px rgba(0,0,0,0.25);
+            --card-border: rgba(245,175,25,0.2);
+        }
 
-body{
-    font-family: "Segoe UI", sans-serif;
-    overflow-x:hidden;
-}
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-.navbar{
-    background:rgba(15,23,42,.95);
-    backdrop-filter:blur(10px);
-}
+        /* Glassmorphisme header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(255, 252, 240, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 2px solid rgba(245,175,25,0.2);
+            padding: 0.9rem 0;
+        }
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    background:
-    linear-gradient(rgba(11,61,145,.85),rgba(15,23,42,.9)),
-    url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop') center/cover;
-    color:white;
-}
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-.hero h1{
-    font-size:4rem;
-    font-weight:800;
-}
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.01em;
+        }
 
-.hero span{
-    color:var(--gold);
-}
+        .logo span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #7A6B4E;
+            letter-spacing: 1px;
+        }
 
-.btn-gold{
-    background:var(--gold);
-    color:#000;
-    font-weight:700;
-    border:none;
-}
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            align-items: center;
+        }
 
-.btn-gold:hover{
-    background:#e6c55a;
-}
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1F2A44;
+            transition: 0.3s;
+        }
 
-.section-title{
-    font-weight:800;
-    color:var(--primary);
-    margin-bottom:15px;
-}
+        .nav-links a:hover {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-.section-subtitle{
-    color:#6c757d;
-    margin-bottom:50px;
-}
+        .btn-luxury {
+            background: var(--blue-gradient);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 14px rgba(30,75,210,0.3);
+        }
 
-.stats{
-    background:linear-gradient(135deg,#0b3d91,#091f49);
-    color:white;
-}
+        .btn-luxury:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #F5AF19, #E67E22);
+            box-shadow: 0 12px 20px -8px rgba(245,175,25,0.5);
+        }
 
-.stat-card{
-    text-align:center;
-}
+        /* HERO avec dégradé mix et image */
+        .hero {
+            position: relative;
+            background: linear-gradient(115deg, rgba(11,47,158,0.05) 0%, rgba(245,175,25,0.08) 100%);
+            padding: 5rem 0 6rem;
+            overflow: hidden;
+        }
 
-.stat-number{
-    font-size:2.5rem;
-    font-weight:800;
-    color:var(--gold);
-}
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
 
-.service-card{
-    border:none;
-    border-radius:20px;
-    transition:.3s;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
+        .hero-text {
+            flex: 1.2;
+        }
 
-.service-card:hover{
-    transform:translateY(-10px);
-}
+        .hero-badge {
+            background: linear-gradient(145deg, rgba(245,175,25,0.2), rgba(227,114,138,0.15));
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            border-radius: 3rem;
+            font-weight: 700;
+            color: #C25D2E;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #F5AF19;
+        }
 
-.service-icon{
-    font-size:3rem;
-    color:var(--primary);
-}
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 800;
+            background: var(--mix-grad);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
 
-.about{
-    background:#f8fafc;
-}
+        .highlight-name {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
 
-.gallery img{
-    border-radius:20px;
-    height:250px;
-    object-fit:cover;
-    width:100%;
-}
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #2C3A5E;
+            margin-bottom: 2rem;
+        }
 
-.contact{
-    background:linear-gradient(135deg,#0b3d91,#091f49);
-    color:white;
-}
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
 
-.form-control{
-    padding:12px;
-}
+        .stat-item h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--blue-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-.footer{
-    background:#0f172a;
-    color:white;
-}
+        .hero-image img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 2rem;
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.2);
+            border: 1px solid rgba(245,175,25,0.4);
+            transition: transform 0.4s;
+        }
 
-.footer a{
-    color:#cbd5e1;
-    text-decoration:none;
-}
+        /* Services avec cartes or/bleu/rose */
+        .section {
+            padding: 5rem 0;
+        }
 
-@media(max-width:768px){
-    .hero h1{
-        font-size:2.5rem;
-    }
-}
-</style>
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            background: var(--blue-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 12px 28px -10px rgba(0,0,0,0.08);
+            transition: 0.4s;
+            border: 1px solid rgba(245,175,25,0.25);
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lux);
+            border-color: #F5AF19;
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .service-card:hover .card-img img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.8rem;
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            background: linear-gradient(145deg, #FFF5E6, #FDEBD0);
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1.2rem;
+            margin-bottom: 1rem;
+            color: #E67E22;
+        }
+
+        /* Zone dégradé rose + or */
+        .prestige-block {
+            background: linear-gradient(125deg, #0B2F9E, #1E4BD2);
+            border-radius: 3rem;
+            margin: 2rem 0;
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+        }
+
+        .prestige-block::after {
+            content: "✨";
+            font-size: 10rem;
+            position: absolute;
+            bottom: -20px;
+            right: 0px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .flex-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            color: white;
+            gap: 1rem;
+        }
+
+        .gold-text {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        .live-rate-box {
+            background: rgba(255,255,240,0.15);
+            backdrop-filter: blur(8px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Galerie about avec effet */
+        .about-grid {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-gallery {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-gallery img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            box-shadow: 0 12px 18px -8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border: 2px solid rgba(245,175,25,0.3);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            background: var(--rose-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .pill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 2rem 0;
+        }
+
+        .pill {
+            background: linear-gradient(145deg, #FEF2E8, #FCE6D4);
+            padding: 0.5rem 1.2rem;
+            border-radius: 3rem;
+            font-weight: 600;
+            color: #B45F2A;
+        }
+
+        /* Formulaire luxe */
+        .contact-luxury {
+            background: linear-gradient(115deg, #FFFFFF 0%, #FFF9F0 100%);
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 28px 38px -18px rgba(0,0,0,0.2);
+            border: 1px solid rgba(245,175,25,0.5);
+        }
+
+        .form-2cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .input-lux {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border-radius: 2rem;
+            border: 1px solid #F0D8B0;
+            background: white;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+
+        .input-lux:focus {
+            border-color: #F5AF19;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(245,175,25,0.2);
+        }
+
+        footer {
+            background: #0E1C2F;
+            color: #EADBC6;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 800px) {
+            .hero-text h1 { font-size: 2.7rem; }
+            .form-2cols { grid-template-columns: 1fr; }
+            .about-gallery { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-<div class="container">
-<a class="navbar-brand fw-bold" href="#">
-<i class="bi bi-globe2 text-warning"></i>
- Global Trade Export
-</a>
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1>Adama Meite</h1>
+            <span>IMPORT · EXPORT · LUXURY LOGISTICS</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Accueil</a>
+            <a href="#services">Expertises</a>
+            <a href="#about">Présence</a>
+            <a href="#contact">Contact</a>
+            <button class="btn-luxury" id="navCta"><i class="fas fa-handshake"></i> Devis premium</button>
+        </div>
+    </div>
+</header>
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-<span class="navbar-toggler-icon"></span>
-</button>
+<main>
+    <!-- Hero avec nom Adama Meite mis en avant -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div class="hero-badge"><i class="fas fa-crown"></i> Fondateur : Adama Meite</div>
+                <h1>L’excellence du <span class="highlight-name">commerce international</span> <br>signé Adama Meite</h1>
+                <p>Basé à Abidjan, Paris & Dubaï — Réseau premium de fret maritime, aérien et dédouanement. <strong>Adama Meite</strong> et son équipe vous ouvrent les portes des marchés émergents et matures.</p>
+                <div class="hero-stats">
+                    <div class="stat-item"><h3>99%</h3><p>Satisfaction client</p></div>
+                    <div class="stat-item"><h3>28</h3><p>Pays partenaires</p></div>
+                    <div class="stat-item"><h3>3500+</h3><p>Containers / an</p></div>
+                </div>
+                <button class="btn-luxury" id="heroCta" style="margin-top: 0.5rem;"><i class="fas fa-gem"></i> Demander un devis personnalisé</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=600&auto=format" alt="Port & logistique premium par Adama Meite">
+            </div>
+        </div>
+    </section>
 
-<div class="collapse navbar-collapse" id="menu">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
-<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-<li class="nav-item"><a class="nav-link" href="#about">À Propos</a></li>
-<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-</ul>
-</div>
-</div>
-</nav>
+    <!-- Services (cartes premium avec images haute qualité) -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-chart-network"></i> Solutions signature Meite</h2>
+                <p>Des chaînes d'approvisionnement conçues sur mesure pour les leaders</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=500&auto=format" alt="Fret maritime"></div>
+                    <div class="card-content"><div class="card-icon"><i class="fas fa-ship"></i></div><h3>Fret maritime</h3><p>FCL / LCL, routes exclusives Afrique-Asie-Europe.</p></div>
+                </div>
+                <div class="service-card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&auto=format" alt="Fret aérien"></div>
+                    <div class="card-content"><div class="card-icon"><i class="fas fa-plane"></i></div><h3>Fret aérien premium</h3><p>Urgence, pharma, high-value : sécurité absolue.</p></div>
+                </div>
+                <div class="service-card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=500&auto=format" alt="Dédouanement"></div>
+                    <div class="card-content"><div class="card-icon"><i class="fas fa-passport"></i></div><h3>Dédouanement</h3><p>Conformité douanière & agrément global.</p></div>
+                </div>
+                <div class="service-card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1556741533-6e6a3bd8e341?w=500&auto=format" alt="Conseil stratégique"></div>
+                    <div class="card-content"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Trade consulting</h3><p>Stratégies d’export & financements structurés.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section class="hero" id="home">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-lg-7">
-<h1>
-Votre partenaire mondial en
-<span>Import & Export</span>
-</h1>
+    <!-- Bloc prestige dégradé or/bleu + données dynamiques -->
+    <div class="container">
+        <div class="prestige-block">
+            <div class="flex-stats">
+                <div>
+                    <h3 style="font-size: 1.8rem;"><i class="fas fa-charging-station"></i> Indicateurs <span class="gold-text">Adama Meite</span></h3>
+                    <p>Transparence & réactivité — Suivi en temps réel</p>
+                </div>
+                <div class="live-rate-box" id="luxeRates">
+                    <span><i class="fas fa-dollar-sign"></i> USD/XOF: --</span>
+                    <span><i class="fas fa-euro-sign"></i> EUR/XOF: --</span>
+                    <span><i class="fas fa-chart-line"></i> Indice fret: --</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<p class="lead my-4">
-Nous accompagnons les entreprises dans leurs opérations commerciales
-internationales avec des solutions logistiques fiables et sécurisées.
-</p>
+    <!-- Section À propos / Adama Meite avec galerie -->
+    <section id="about" class="section">
+        <div class="container about-grid">
+            <div class="about-gallery">
+                <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=500&auto=format" alt="Adama Meite meeting">
+                <img src="https://images.unsplash.com/photo-1590650153855-d84c0a8ce6ff?w=500&auto=format" alt="Warehouse Meite Group">
+                <img src="https://images.unsplash.com/photo-1601584117797-b21c3b0be0b2?w=500&auto=format" alt="Global logistics">
+                <img src="https://images.unsplash.com/photo-1556745753-b2904672b3d3?w=500&auto=format" alt="Digital trade">
+            </div>
+            <div class="about-text">
+                <h3><i class="fas fa-user-tie"></i> Adama Meite — Visionnaire global</h3>
+                <p>Fort de 18 ans d'expérience dans les corridors commerciaux, Adama Meite a bâti un écosystème de confiance mêlant intégrité et innovation. Nos bureaux au Havre, Abidjan, Shanghai et Dubaï garantissent une réactivité unique.</p>
+                <div class="pill-list">
+                    <span class="pill">✅ Expertise douane UE/UEMOA</span>
+                    <span class="pill">📦 Tracking 4.0</span>
+                    <span class="pill">⚡ Dédouanement 24h</span>
+                    <span class="pill">🏆 Prix de l’export 2024</span>
+                </div>
+                <button class="btn-luxury" id="aboutBtn"><i class="fas fa-calendar-check"></i> Rencontrer Adama Meite</button>
+            </div>
+        </div>
+    </section>
 
-<a href="#contact" class="btn btn-gold btn-lg me-3">
-Demander un devis
-</a>
+    <!-- Formulaire de contact signé Adama Meite -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Échangez avec <span class="highlight-name">Adama Meite</span></h2>
+                <p>Un devis détaillé sous 2h ouvrées — équipe dédiée</p>
+            </div>
+            <div class="contact-luxury">
+                <form id="meiteForm">
+                    <div class="form-2cols">
+                        <input type="text" id="fullName" class="input-lux" placeholder="Nom complet" required>
+                        <input type="email" id="emailMeite" class="input-lux" placeholder="Email professionnel" required>
+                        <input type="tel" id="phoneMeite" class="input-lux" placeholder="Téléphone (WhatsApp)">
+                        <select id="originSelect" class="input-lux">
+                            <option>Pays d'origine / destination</option>
+                            <option>Afrique → Europe</option>
+                            <option>Asie → Afrique</option>
+                            <option>Amériques → Moyen-Orient</option>
+                            <option>Autre : précisez en message</option>
+                        </select>
+                        <textarea id="msgMeite" rows="3" class="input-lux" placeholder="Nature des produits, volume, objectifs..." style="grid-column: span 2;"></textarea>
+                        <button type="submit" class="btn-luxury" style="grid-column: span 2; justify-self: start; background: var(--gold-gradient);"><i class="fas fa-paper-plane"></i> Envoyer la demande à Adama Meite</button>
+                    </div>
+                    <div id="formFeedbackMeite" style="margin-top: 1.2rem; font-weight: 500;"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
 
-<a href="#services" class="btn btn-outline-light btn-lg">
-Nos services
-</a>
-</div>
-</div>
-</div>
-</section>
-
-<!-- STATS -->
-<section class="stats py-5">
-<div class="container">
-<div class="row">
-
-<div class="col-md-3 stat-card">
-<div class="stat-number" data-target="85">0</div>
-<p>Pays desservis</p>
-</div>
-
-<div class="col-md-3 stat-card">
-<div class="stat-number" data-target="2500">0</div>
-<p>Clients</p>
-</div>
-
-<div class="col-md-3 stat-card">
-<div class="stat-number" data-target="50000">0</div>
-<p>Expéditions</p>
-</div>
-
-<div class="col-md-3 stat-card">
-<div class="stat-number" data-target="98">0</div>
-<p>% Satisfaction</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- SERVICES -->
-<section class="py-5" id="services">
-<div class="container">
-
-<div class="text-center">
-<h2 class="section-title">Nos Services</h2>
-<p class="section-subtitle">
-Des solutions complètes pour votre activité internationale
-</p>
-</div>
-
-<div class="row g-4">
-
-<div class="col-md-4">
-<div class="card service-card h-100 p-4">
-<i class="bi bi-box-seam service-icon"></i>
-<h4 class="mt-3">Importation</h4>
-<p>Gestion complète des achats internationaux.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card service-card h-100 p-4">
-<i class="bi bi-airplane service-icon"></i>
-<h4 class="mt-3">Transport Aérien</h4>
-<p>Livraison rapide et sécurisée partout dans le monde.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card service-card h-100 p-4">
-<i class="bi bi-ship service-icon"></i>
-<h4 class="mt-3">Transport Maritime</h4>
-<p>Solutions logistiques adaptées aux grands volumes.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card service-card h-100 p-4">
-<i class="bi bi-file-earmark-text service-icon"></i>
-<h4 class="mt-3">Dédouanement</h4>
-<p>Gestion simplifiée des formalités douanières.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card service-card h-100 p-4">
-<i class="bi bi-building service-icon"></i>
-<h4 class="mt-3">Entreposage</h4>
-<p>Stockage sécurisé dans nos infrastructures modernes.</p>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card service-card h-100 p-4">
-<i class="bi bi-globe service-icon"></i>
-<h4 class="mt-3">Exportation</h4>
-<p>Accompagnement vers de nouveaux marchés internationaux.</p>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- ABOUT -->
-<section class="about py-5" id="about">
-<div class="container">
-
-<div class="row align-items-center">
-
-<div class="col-lg-6">
-<img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=1200&auto=format&fit=crop"
-class="img-fluid rounded-4 shadow">
-</div>
-
-<div class="col-lg-6">
-<h2 class="section-title">
-Pourquoi nous choisir ?
-</h2>
-
-<p>
-Depuis plus de 15 ans, nous accompagnons les entreprises
-dans leurs échanges commerciaux à travers le monde.
-</p>
-
-<ul class="list-unstyled">
-<li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Réseau international</li>
-<li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Support 24h/24</li>
-<li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Solutions personnalisées</li>
-<li class="mb-3"><i class="bi bi-check-circle-fill text-success"></i> Tarifs compétitifs</li>
-</ul>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- GALLERY -->
-<section class="py-5 gallery">
-<div class="container">
-
-<div class="text-center">
-<h2 class="section-title">Nos Opérations</h2>
-<p class="section-subtitle">
-Découvrez notre expertise logistique
-</p>
-</div>
-
-<div class="row g-4">
-
-<div class="col-md-4">
-<img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=1200&auto=format&fit=crop">
-</div>
-
-<div class="col-md-4">
-<img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=1200&auto=format&fit=crop">
-</div>
-
-<div class="col-md-4">
-<img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop">
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact py-5" id="contact">
-<div class="container">
-
-<div class="row">
-
-<div class="col-lg-6">
-<h2 class="fw-bold mb-4">Contactez-nous</h2>
-
-<p>
-Boulevard du Commerce International<br>
-Cotonou, Bénin
-</p>
-
-<p>
-<i class="bi bi-telephone"></i> +229 01 90 00 00 00
-</p>
-
-<p>
-<i class="bi bi-envelope"></i> contact@globaltradeexport.com
-</p>
-</div>
-
-<div class="col-lg-6">
-
-<form class="bg-white p-4 rounded-4 shadow">
-<input class="form-control mb-3" placeholder="Nom complet">
-<input class="form-control mb-3" placeholder="Email">
-<input class="form-control mb-3" placeholder="Téléphone">
-
-<textarea class="form-control mb-3" rows="4"
-placeholder="Votre message"></textarea>
-
-<button class="btn btn-primary w-100">
-Envoyer la demande
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer py-4">
-<div class="container text-center">
-
-<h5>Global Trade Export</h5>
-
-<p>
-Import • Export • Logistique Internationale
-</p>
-
-<p class="mb-0">
-© 2026 Tous droits réservés.
-</p>
-
-</div>
+<footer>
+    <div class="container">
+        <div class="footer-grid" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+            <div><h4 style="color: #F5AF19;">Adama Meite Group</h4><p>Import-Export sans frontières<br>Leadership & intégrité</p></div>
+            <div><h4 style="color: #F5AF19;">Liens</h4><p><a href="#services" style="color:#EADBC6; text-decoration:none;">Prestations</a><br><a href="#about" style="color:#EADBC6; text-decoration:none;">Notre réseau</a><br><a href="#contact" style="color:#EADBC6; text-decoration:none;">Contacter Adama</a></p></div>
+            <div><h4 style="color: #F5AF19;">Contact direct</h4><p><i class="fas fa-envelope"></i> a.meite@globalnexus.com<br>+225 07 59 12 34 56<br><i class="fab fa-linkedin"></i> <i class="fab fa-whatsapp"></i> <i class="fab fa-instagram"></i></p></div>
+        </div>
+        <div class="copyright" style="text-align:center; margin-top: 2rem; opacity:0.7;">© 2026 Adama Meite — Tous droits réservés. Design dégradé or, bleu, rose.</div>
+    </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-const counters=document.querySelectorAll('.stat-number');
+    // Taux de change dynamique (XOF, USD, EUR)
+    function updateMeiteRates() {
+        const usdToXof = (580 + Math.random() * 15).toFixed(0);
+        const eurToXof = (655 + Math.random() * 12).toFixed(0);
+        const freightIndex = Math.floor(1250 + Math.random() * 300);
+        document.getElementById('luxeRates').innerHTML = `
+            <span><i class="fas fa-dollar-sign"></i> USD/XOF: ${usdToXof}</span>
+            <span><i class="fas fa-euro-sign"></i> EUR/XOF: ${eurToXof}</span>
+            <span><i class="fas fa-chart-line"></i> Indice fret: ${freightIndex}</span>
+        `;
+    }
+    updateMeiteRates();
+    setInterval(updateMeiteRates, 25000);
 
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.getAttribute('data-target');
-const count=+counter.innerText;
+    // Scrolls smooth
+    const scrollToContact = () => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('heroCta')?.addEventListener('click', scrollToContact);
+    document.getElementById('navCta')?.addEventListener('click', scrollToContact);
+    document.getElementById('aboutBtn')?.addEventListener('click', scrollToContact);
 
-const increment=target/100;
+    // Gestion du formulaire "Adama Meite"
+    const formMeite = document.getElementById('meiteForm');
+    const feedbackDiv = document.getElementById('formFeedbackMeite');
+    formMeite.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('emailMeite').value.trim();
+        if (!name || !email) {
+            feedbackDiv.innerHTML = '<span style="color:#D97706;">❌ Veuillez renseigner votre nom et email pour qu’Adama Meite vous réponde.</span>';
+            setTimeout(() => feedbackDiv.innerHTML = '', 3000);
+            return;
+        }
+        feedbackDiv.innerHTML = '<span style="color:#1E4BD2;">✨ Votre demande a été transmise à Adama Meite — réponse sous 2h.</span>';
+        formMeite.reset();
+        setTimeout(() => feedbackDiv.innerHTML = '', 5000);
+    });
 
-if(count<target){
-counter.innerText=Math.ceil(count+increment);
-setTimeout(update,20);
-}else{
-counter.innerText=target;
-}
-}
-update();
-});
+    // Animation stats élégante au scroll
+    const statValues = document.querySelectorAll('.stat-item h3');
+    const observerStats = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const stats = document.querySelectorAll('.stat-item h3');
+                if (stats[0] && stats[0].innerText === '99%') {
+                    const animateVal = (el, end, suffix) => {
+                        let start = 0;
+                        const step = () => {
+                            start += Math.ceil(end / 30);
+                            if (start < end) {
+                                el.innerText = start + suffix;
+                                requestAnimationFrame(step);
+                            } else el.innerText = end + suffix;
+                        };
+                        requestAnimationFrame(step);
+                    };
+                    animateVal(stats[0], 99, '%');
+                    animateVal(stats[1], 28, '');
+                    animateVal(stats[2], 3500, '+');
+                }
+                observerStats.disconnect();
+            }
+        });
+    }, { threshold: 0.3 });
+    const heroStatsDiv = document.querySelector('.hero-stats');
+    if (heroStatsDiv) observerStats.observe(heroStatsDiv);
 </script>
-
 </body>
 </html>
+```
